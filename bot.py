@@ -34,19 +34,22 @@ async def save_note(message: types.Message):
 @dp.message_handler(content_types=types.ContentTypes.PHOTO)
 async def handle_docs_text(message: types.Message):
     try:
+        print(message)
         photo = message.reply_to_message.photo
         text = message.reply_to_message.caption
+        print('ok')
     except:
         photo = message.photo
         text = message.caption
+        print('not ok')
     session_storage['text'] = text
     await photo[-1].download()
 
 
-@dp.message_handler(content_types=types.ContentTypes.TEXT)
-async def handle_docs_images(message):
-    session_storage['text'] = message.text
-    await message.answer(message)
+# @dp.message_handler(content_types=types.ContentTypes.TEXT)
+# async def handle_docs_images(message):
+#     session_storage['text'] = message.text
+#     await message.answer(message)
 
 
 # @dp.message_handler(content_types=[types.ContentType.ANY])

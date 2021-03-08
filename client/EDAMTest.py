@@ -37,7 +37,7 @@ if auth_token == "your developer token":
 # To access production (International) service, set both sandbox and china to False
 # To access production (China) service, set sandbox to False and china to True
 
-sandbox=True
+sandbox=False
 china=False
 client = EvernoteClient(token=auth_token, sandbox=sandbox,china=china)
 user_store = client.get_user_store()
